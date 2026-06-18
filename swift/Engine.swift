@@ -223,9 +223,9 @@ public actor Engine {
     }
     litert_lm_conversation_config_set_enable_constrained_decoding(
       cConversationConfig, ExperimentalFlags.enableConversationConstrainedDecoding)
-    litert_lm_conversation_config_set_stream_tool_calls(
-      cConversationConfig, ExperimentalFlags.enableConversationToolCallStreaming,
-      ExperimentalFlags.conversationToolCallStreamingChannelName)
+    // The SwiftPM binary targets still point at v0.13.1, whose C API does not
+    // expose tool-call streaming yet. Re-enable this once the XCFrameworks catch
+    // up with the upstream source API.
 
     guard
       let conversationHandle = litert_lm_conversation_create(
